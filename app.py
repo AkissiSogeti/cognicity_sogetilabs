@@ -1,6 +1,5 @@
 import gradio as gr
 from hezar.models import Model
-from tesserocr import PSM, image_to_text
 
 css = """
 .component {background-color: #A2D2FF}
