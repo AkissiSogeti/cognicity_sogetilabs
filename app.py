@@ -1,6 +1,7 @@
 import gradio as gr
 import pytesseract
 import re
+from hezar.models import Model
 
 # Pour avoir la liste des langues disponibles
 # print(pytesseract.get_languages(config=''))
@@ -18,8 +19,10 @@ import re
 css = """
 #input {background-color: #FFFAF0}
 .feedback textarea {font-size: 24px !important}
-.gradio-container {background-color: #DCDCDC}
+.gradio-container {background-color: #FFDFB0}
 """
+
+persianPlateModel = Model.load("hezarai/crnn-fa-64x256-license-plate-recognition")
 
 def launch(image, radio):
     text = plate_to_text(image)
@@ -38,6 +41,9 @@ def launch(image, radio):
     
     elif (radio == "Italian plate"):
         return italian_plate(text)
+      
+    elif (radio == "Persian plate"):
+        return(persianPlateModel.predict(image)[0]["text"])
 
 def plate_to_text(image):
     # Récupération du texte issu de l'image
@@ -120,7 +126,7 @@ with gr.Blocks(css=css) as demo:
         # Première colonne du premier bloc
         with gr.Column():
             image = gr.Image(label = "Input Image", type="pil",elem_classes = "component")
-            radio = gr.Radio(["French plate", "Spain plate", "Italian plate"],elem_classes = "component")
+            radio = gr.Radio(["French plate", "Spain plate", "Italian plate", "Persian plate"],elem_classes = "component")
             # TODO Add buttons depending on the model used
 
         with gr.Column():

@@ -11,4 +11,5 @@ Soit en les installant un par un :
 ```bash
 pip install gradio
 pip install pytesseract
+pip install librosa
 ```
