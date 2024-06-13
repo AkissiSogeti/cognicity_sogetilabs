@@ -1,6 +1,6 @@
 # cognicity_sogetilabs
 
-Il faut bien penser à importer les deux modules indiqués dans le fichier requirements.txt (sur un environnement virtuel par exemple).
+Il faut bien penser à importer les modules indiqués dans le fichier requirements.txt (sur un environnement virtuel par exemple).
 
 Soit à partir du fichier directement :
 ```bash
@@ -12,4 +12,5 @@ Soit en les installant un par un :
 pip install gradio
 pip install pytesseract
 pip install librosa
+pip install hezar
 ```
