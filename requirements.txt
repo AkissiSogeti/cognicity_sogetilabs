@@ -1,3 +1,4 @@
 gradio
 pytesseract
 librosa
+hezar
