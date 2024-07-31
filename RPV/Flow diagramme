@@ -1,0 +1,152 @@
+         +-----------------+
+         |  Démarrer       |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         |  Charger les    |
+         |  modèles YOLO   |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         |  Lire la vidéo  |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Boucle de lecture|
+         | des frames       |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         |  Détection des  |
+         |  véhicules      |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         |  Suivi des      |
+         |  véhicules      |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Détection des   |
+         | plaques d'imm.  |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Assignation des |
+         | plaques aux     |
+         | véhicules       |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Recadrage et    |
+         | traitement des  |
+         | plaques         |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Lecture des     |
+         | numéros de      |
+         | plaques         |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Sauvegarde des  |
+         | résultats (CSV) |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Interpolation   |
+         | des données     |
+         | manquantes      |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Visualisation   |
+         | des résultats   |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         | Écrire la vidéo |
+         | de sortie       |
+         +--------+--------+
+                  |
+                  v
+         +-----------------+
+         |     Fin         |
+         +-----------------+
+
+
+
+Diagramme de Flux - Insertion d'une Vidéo
+
+1.Démarrer
+Action: Insérer une vidéo.
+Charger les Modèles
+
+2.Script: main.py
+Action: Charger les modèles YOLO (coco_model et license_plate_detector).
+Lire la Vidéo
+
+3.Script: main.py
+Action: Ouvrir la vidéo avec OpenCV (cv2.VideoCapture).
+Boucle de Lecture des Frames
+
+4.Script: main.py
+Action: Lire les frames de la vidéo dans une boucle.
+Détection des Véhicules
+
+5.Script: main.py
+Action: Détecter les véhicules à l'aide du modèle COCO YOLO.
+Suivi des Véhicules
+
+6.Script: main.py
+Action: Utiliser l'algorithme de suivi Sort pour suivre les véhicules détectés.
+Détection des Plaques d'Immatriculation
+
+7.Script: main.py
+Action: Détecter les plaques d'immatriculation à l'aide du modèle YOLO.
+Assignation des Plaques aux Véhicules
+
+8.Script: main.py
+Action: Assigner les plaques d'immatriculation aux véhicules détectés.
+Recadrage et Traitement des Plaques
+
+9.Script: main.py
+Action: Recadrer les plaques d'immatriculation et les convertir en niveaux de gris puis en binaire.
+Lecture des Numéros de Plaque
+
+10.Script: main.py
+Action: Utiliser OCR pour lire le texte des plaques d'immatriculation.
+Sauvegarde des Résultats
+
+11.Script: main.py
+Action: Écrire les résultats dans un fichier CSV (test.csv).
+Interpoler les Données Manquantes
+
+12.Script: add_missing_data.py
+Action: Interpoler les bounding boxes manquants dans le fichier CSV et créer un nouveau fichier (test_interpolated.csv).
+Visualisation des Résultats
+
+13.Script: vizualyse.py
+Action: Lire le fichier test_interpolated.csv et visualiser les résultats sur la vidéo.
+Sous-action: Dessiner des bordures sur les voitures et les plaques d'immatriculation.
+Sous-action: Ajouter le texte des plaques d'immatriculation sur la vidéo.
+Écrire la Vidéo de Sortie
+
+14.Script: vizualyse.py
+Action: Sauvegarder la vidéo annotée dans un fichier (out.mp4).
+
+15.Fin
